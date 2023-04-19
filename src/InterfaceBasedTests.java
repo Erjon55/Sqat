@@ -19,10 +19,10 @@ class InterfaceBasedTests {
     @Test
     public void bothTeamsNotEmptyNotNull()
     {
-        Set<String> team1 = new HashSet<>(Arrays.asList("Erjon","Haled"));
-        Set<String> team2 = new HashSet<>(Arrays.asList("Despina","Marija"));
+        Set<String> team1 = new HashSet<>(Arrays.asList("Wade","Dave"));
+        Set<String> team2 = new HashSet<>(Arrays.asList("Seth","Ivan"));
         Set<String> result = NotInBothTeamsClass.notInBothTeams(team1,team2);
-        Set<String> expected = new HashSet<>(Arrays.asList("Erjon","Haled","Despina","Marija"));
+        Set<String> expected = new HashSet<>(Arrays.asList("Wade","Dave","Seth","Ivan"));
         assertEquals(result,expected);
     }
 
@@ -30,19 +30,19 @@ class InterfaceBasedTests {
     public void team1Empty()
     {
         Set<String> team1 = new HashSet<>(Arrays.asList());
-        Set<String> team2 = new HashSet<>(Arrays.asList("Despina","Marija"));
+        Set<String> team2 = new HashSet<>(Arrays.asList("Seth","Ivan"));
         Set<String> result = NotInBothTeamsClass.notInBothTeams(team1,team2);
-        Set<String> expected = new HashSet<>(Arrays.asList("Despina","Marija"));
+        Set<String> expected = new HashSet<>(Arrays.asList("Seth","Ivan"));
         assertEquals(result,expected);
     }
 
     @Test
     public void team2Empty()
     {
-        Set<String> team1 = new HashSet<>(Arrays.asList("Erjon","Haled"));
+        Set<String> team1 = new HashSet<>(Arrays.asList("Wade","Dave"));
         Set<String> team2 = new HashSet<>(Arrays.asList());
         Set<String> result = NotInBothTeamsClass.notInBothTeams(team1,team2);
-        Set<String> expected = new HashSet<>(Arrays.asList("Erjon","Haled"));
+        Set<String> expected = new HashSet<>(Arrays.asList("Wade","Dave"));
         assertEquals(result,expected);
     }
 

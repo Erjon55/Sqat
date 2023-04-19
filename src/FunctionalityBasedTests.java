@@ -18,28 +18,28 @@ class FunctionalityBasedTests {
     @Test
     public void sameSizeNoCommonIDsBothNotEmpty()
     {
-        Set<String> team1 = new HashSet<>(Arrays.asList("Erjon","Haled"));
-        Set<String> team2 = new HashSet<>(Arrays.asList("Despina","Marija"));
+        Set<String> team1 = new HashSet<>(Arrays.asList("Wade","Dave"));
+        Set<String> team2 = new HashSet<>(Arrays.asList("Seth","Ivan"));
         Set<String> result = NotInBothTeamsClass.notInBothTeams(team1,team2);
-        Set<String> expected = new HashSet<>(Arrays.asList("Erjon","Haled","Despina","Marija"));
+        Set<String> expected = new HashSet<>(Arrays.asList("Wade","Dave","Seth","Ivan"));
         assertEquals(result,expected);
     }
 
     @Test
     public void sameSizeAtLeastOneCommon()
     {
-        Set<String> team1 = new HashSet<>(Arrays.asList("Erjon","Haled"));
-        Set<String> team2 = new HashSet<>(Arrays.asList("Haled","Marija"));
+        Set<String> team1 = new HashSet<>(Arrays.asList("Wade","Dave"));
+        Set<String> team2 = new HashSet<>(Arrays.asList("Dave","Ivan"));
         Set<String> result = NotInBothTeamsClass.notInBothTeams(team1,team2);
-        Set<String> expected = new HashSet<>(Arrays.asList("Erjon","Marija"));
+        Set<String> expected = new HashSet<>(Arrays.asList("Wade","Ivan"));
         assertEquals(result,expected);
     }
 
     @Test
     public void sameSizeSameIDs()
     {
-        Set<String> team1 = new HashSet<>(Arrays.asList("Erjon","Haled"));
-        Set<String> team2 = new HashSet<>(Arrays.asList("Erjon","Haled"));
+        Set<String> team1 = new HashSet<>(Arrays.asList("Wade","Dave"));
+        Set<String> team2 = new HashSet<>(Arrays.asList("Wade","Dave"));
         Set<String> result = NotInBothTeamsClass.notInBothTeams(team1,team2);
         Set<String> expected = new HashSet<>();
         assertEquals(result,expected);
@@ -49,19 +49,19 @@ class FunctionalityBasedTests {
     @Test
     public void team1BiggerTeam2Subset()
     {
-        Set<String> team1 = new HashSet<>(Arrays.asList("Aleksandar","Mario","Sara"));
-        Set<String> team2 = new HashSet<>(Arrays.asList("Aleksandar"));
+        Set<String> team1 = new HashSet<>(Arrays.asList("Riley","Gilbert","Jorge"));
+        Set<String> team2 = new HashSet<>(Arrays.asList("Riley"));
         Set<String> result = NotInBothTeamsClass.notInBothTeams(team1,team2);
-        Set<String> expected = new HashSet<>(Arrays.asList("Mario","Sara"));
+        Set<String> expected = new HashSet<>(Arrays.asList("Gilbert","Jorge"));
         assertEquals(result,expected);
     }
     @Test
     public void team2BiggerTeam1Subset()
     {
-        Set<String> team1 = new HashSet<>(Arrays.asList("Haled"));
-        Set<String> team2 = new HashSet<>(Arrays.asList("Erjon","Haled","Despina"));
+        Set<String> team1 = new HashSet<>(Arrays.asList("Dave"));
+        Set<String> team2 = new HashSet<>(Arrays.asList("Wade","Dave","Seth"));
         Set<String> result = NotInBothTeamsClass.notInBothTeams(team1,team2);
-        Set<String> expected = new HashSet<>(Arrays.asList("Erjon","Despina"));
+        Set<String> expected = new HashSet<>(Arrays.asList("Wade","Seth"));
         assertEquals(result,expected);
     }
 
@@ -70,20 +70,20 @@ class FunctionalityBasedTests {
     @Test
     public void team1BiggerNoCommon()
     {
-        Set<String> team1 = new HashSet<>(Arrays.asList("Aleksandar","Mario","Sara"));
-        Set<String> team2 = new HashSet<>(Arrays.asList("Mia","Venhar"));
+        Set<String> team1 = new HashSet<>(Arrays.asList("Riley","Gilbert","Jorge"));
+        Set<String> team2 = new HashSet<>(Arrays.asList("Mia","Brian"));
         Set<String> result = NotInBothTeamsClass.notInBothTeams(team1,team2);
-        Set<String> expected = new HashSet<>(Arrays.asList("Aleksandar","Mario","Sara","Mia","Venhar"));
+        Set<String> expected = new HashSet<>(Arrays.asList("Riley","Gilbert","Jorge","Mia","Brian"));
         assertEquals(result,expected);
     }
 
     @Test
     public void team2BiggerNoCommon()
     {
-        Set<String> team1 = new HashSet<>(Arrays.asList("Aleksandar","Mario"));
-        Set<String> team2 = new HashSet<>(Arrays.asList("Sara","Mia","Venhar"));
+        Set<String> team1 = new HashSet<>(Arrays.asList("Riley","Gilbert"));
+        Set<String> team2 = new HashSet<>(Arrays.asList("Jorge","Mia","Brian"));
         Set<String> result = NotInBothTeamsClass.notInBothTeams(team1,team2);
-        Set<String> expected = new HashSet<>(Arrays.asList("Aleksandar","Mario","Sara","Mia","Venhar"));
+        Set<String> expected = new HashSet<>(Arrays.asList("Riley","Gilbert","Jorge","Mia","Brian"));
         assertEquals(result,expected);
     }
 
@@ -91,19 +91,19 @@ class FunctionalityBasedTests {
     public void team1EmptyTeam2Bigger()
     {
         Set<String> team1 = new HashSet<>(Arrays.asList());
-        Set<String> team2 = new HashSet<>(Arrays.asList("Erjon","Haled"));
+        Set<String> team2 = new HashSet<>(Arrays.asList("Wade","Dave"));
         Set<String> result = NotInBothTeamsClass.notInBothTeams(team1,team2);
-        Set<String> expected = new HashSet<>(Arrays.asList("Erjon","Haled"));
+        Set<String> expected = new HashSet<>(Arrays.asList("Wade","Dave"));
         assertEquals(result,expected);
     }
 
     @Test
     public void team2EmptyTeam1Bigger()
     {
-        Set<String> team1 = new HashSet<>(Arrays.asList("Erjon","Haled"));
+        Set<String> team1 = new HashSet<>(Arrays.asList("Wade","Dave"));
         Set<String> team2 = new HashSet<>(Arrays.asList());
         Set<String> result = NotInBothTeamsClass.notInBothTeams(team1,team2);
-        Set<String> expected = new HashSet<>(Arrays.asList("Erjon","Haled"));
+        Set<String> expected = new HashSet<>(Arrays.asList("Wade","Dave"));
         assertEquals(result,expected);
     }
 }
